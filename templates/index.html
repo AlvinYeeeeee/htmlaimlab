@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="/static/main.css" rel="stylesheet">
+    <title>FPS game</title>
+</head>
+<body class="before"> <!-- Before hides cursor. After shows cursor. Details in css. -->
+    <!-- Display scores. -->
+    <div class="container">
+        <div class="box">
+            <p class="subText"> Time Left: </p>
+            <p class="text" id="secondDisplay"></p>
+            <p></p>
+            <p class="subText">      Accuracy: </p>
+            <p class="text" id="accuracyDisplay"></p>
+            <p></p>
+            <p class="subText">      Score:  </p>
+            <p class="text" id="shotsDisplay"></p>
+        </div>
+    </div>
+    <!-- Display the aim. -->
+    <div class="aim-cont">
+        <div class="aim">
+            <div class="aim-dot"></div>
+        </div>
+    </div>
+    <!-- Display the ui. -->
+    <div class="ui-cont"></div>
+
+    <!-- Arena rotation (camera movements). -->
+    <div style="transform: rotateX(0rad) rotateY(0rad)" class="arena">
+
+        <div class="floor floor1"></div>
+        <div class="floor floor2"></div>
+        <div class="floor floor3"></div>
+        <div class="floor floor4"></div>
+        <div class="floor floor5"></div>
+        <div class="floor floor6"></div>
+        <div class="floor floor7"></div>
+        <div class="floor floor8"></div>
+        <div class="floor floor9"></div> <!-- Put the floors. -->
+    </div>
+
+    <!-- Put the enemies. -->
+    <div class="main">
+        <div class="enemy-cont"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

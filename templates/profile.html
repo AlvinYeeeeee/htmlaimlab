@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Aim Lab
+{% endblock %}
+
+{% block main %}
+    <!-- Display username, records, and history. -->
+    <h4>Highest Records of {{username.username}}:</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Highest Score</th>
+                    <th>Highest Accuracy</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %} <!-- Jinja loops. Useful! -->
+                    <tr>
+                        <td>{{record.high_score}}</td>
+                        <td>{{record.high_accuracy}}%</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <hr>
+    <h4>Training History of {{username.username}}:</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Shots</th>
+                    <th>Score</th>
+                    <th>Accuracy</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hi in his %}
+                    <tr>
+                        <td>{{hi.shots}}</td>
+                        <td>{{hi.score}}</td>
+                        <td>{{hi.accuracy}}%</td>
+                        <td>{{hi.time}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <hr>
+{% endblock %}

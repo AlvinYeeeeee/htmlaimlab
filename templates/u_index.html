@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Aim Lab
+{% endblock %}
+
+{% block main %}
+    <!-- Homepage. Display the username, and have a play button that allows the user to start playing the game. -->
+    <h2>Welcome to CS50 AimLab.</h2>
+    <h4>You are logged in as {{username.username}}.</h4>
+    <div class="midButton">
+        <a href="/homepage" class="button_s">Play</a>
+    </div>
+
+
+{% endblock %}

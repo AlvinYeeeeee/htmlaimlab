@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="/static/main.css" rel="stylesheet">
+    <title>FPS game</title>
+</head>
+<body class="before">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            const shots = urlParams.get('shots');
+            const score = urlParams.get('score');
+            const accuracy = urlParams.get('accuracy');
+
+            console.log(shots, score, accuracy);
+
+            // Ensure these values are used within this scope
+            document.getElementById('shots').textContent = shots;
+            document.getElementById('score').textContent = score;
+            document.getElementById('accuracy').textContent = accuracy;
+        });
+    </script>
+
+    <!-- Display the podcasted variables. -->
+    <div class="container">
+        <div class="box">
+            <p class="subText"> Shots: </p>
+            <p class="text" id="shots"></p>
+            <p></p>
+            <p class="subText">      Score: </p>
+            <p class="text" id="score"></p>
+            <p></p>
+            <p class="subText">      Accuracy:  </p>
+            <p class="text" id="accuracy"></p>
+        </div>
+
+    </div>
+    <!-- Jump out of the iframe. -->
+    <div class="midButton">
+        <button id="changePageButton" class="button_s">Continue</button>
+    </div>
+
+
+    <script>
+        document.getElementById('changePageButton').addEventListener('click', function() {
+            // Post a message to the parent window to request a page change
+            parent.postMessage('changePage', '*');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Aim Lab
+{% endblock %}
+
+{% block main %}
+    <h2>Leaderboard</h2>
+    <br>
+    <!-- Buttons that allow the user to switch which leaderboard to display. -->
+    <button id="showTable1" class="bigger-buttons" style="background-color: #ffcccc;">Score Leaderboard</button>
+    <button id="showTable2" class="bigger-buttons" style="background-color: #E5E4E2;">Accuracy Leaderboard</button>
+    <br>
+
+    <div class="centered">
+        <table id="table1" style="display: inline-block;">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Highest Score</th>
+                    <th>Highest Accuracy</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for auser in ausers %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{auser.username}}</td>
+                        <td>{{auser.high_score}}</td>
+                        <td>{{auser.high_accuracy}}%</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <table id="table2" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Highest Score</th>
+                        <th>Highest Accuracy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for buser in busers %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{buser.username}}</td>
+                            <td>{{buser.high_score}}</td>
+                            <td>{{buser.high_accuracy}}%</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('showTable1').addEventListener('click', function() {
+            // Show table 1 while hide table 2; make score button red and accuracy button grey.
+            document.getElementById('table1').style.display = 'inline-block';
+            document.getElementById('table2').style.display = 'none';
+            document.getElementById('showTable1').style.backgroundColor = '#ffcccc';
+            document.getElementById('showTable2').style.backgroundColor = '#E5E4E2';
+        });
+
+        document.getElementById('showTable2').addEventListener('click', function() {
+            // Show table 2 while hide table 1; make accuracy button red and score button grey.
+            document.getElementById('table1').style.display = 'none';
+            document.getElementById('table2').style.display = 'inline-block';
+            document.getElementById('showTable1').style.backgroundColor = '#E5E4E2';
+            document.getElementById('showTable2').style.backgroundColor = '#ffcccc';
+        });
+    </script>
+{% endblock %}
+

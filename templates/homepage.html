@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aim Lab</title>
+    <link href="/static/main.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Embedd the game in iframe to restrict the size. -->
+    <div class="container">
+        <div class="embedded-site">
+            <!--
+            <iframe src="intropage.html"></iframe>
+            -->
+            <iframe src="{{ url_for('intro_page') }}"></iframe>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.data === 'changePage') {
+                // Redirect the entire page to the new location
+                window.location.href = '/'; // Replace '/endpage' with your actual route
+            }
+        });
+    </script>
+</body>
+</html>

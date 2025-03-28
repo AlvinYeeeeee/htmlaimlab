@@ -1,0 +1,411 @@
+@import url('enemy.css');
+@import url('../enemies/enemy.css');
+
+.before{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 1366px;
+    height: 657px;
+    background: white;
+}
+
+.after{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    cursor: none; /* Hide the cursor. In aimlab, when we move the mouse, we move the aim through moving the cursor. So I hide the cursor */
+    width: 1366px;
+    height: 657px;
+    background: white;
+}
+
+body div {
+    transform-style: preserve-3d;
+}
+
+
+.arena{
+    width: 1366px;
+    height: 657px;
+    perspective: 3000px;
+    position: relative;
+    top: 100px;
+    /* animation: rotate 10s infinite 0s;   */
+}
+@keyframes rotate {
+    0%{
+        transform: rotateX(-10deg) rotateY(0deg);
+    }
+
+    50%{
+        transform: rotateX(20deg) rotateY(360deg);
+    }
+
+    100% {
+        transform: rotateX(-10deg) rotateY(0deg);
+    }
+}
+
+.start-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.midButton{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.midButton button {
+    width: 200px; /* Adjust width as needed */
+    height: 80px; /* Adjust height as needed */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    display: flex; /* Change to flex to create a horizontal layout */
+    padding: 10px;
+    border: 2px solid #8B0000;
+    background-color: #8B0000;
+    justify-content: space-around; /* Distribute elements evenly */
+    width: fit-content;
+}
+
+.text {
+    color: white;
+    font-weight: bold;
+    font-family: "Microsoft YaHei", sans-serif; /* Setting the font-family */
+    font-size: 200%; /* Making the text three times larger */
+    font-stretch: condensed; /* Adjusting font-stretch to make it more condensed */
+    margin-right: 20px;
+}
+
+.subText {
+    font-weight: bold;
+    font-size: 125%; /* Making the text three times larger */
+    font-stretch: condensed; /* Adjusting font-stretch to make it more condensed */
+    margin-left: 20px;
+    margin-right: 5px;
+}
+
+.embedded-site {
+    width: 1456px; /* Set the width of the container */
+    height: 910px; /* Set the height of the container */
+    overflow: hidden; /* Hide content that exceeds the container */
+    border: 1px solid #ccc; /* Optional: Add a border for visibility */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.embedded-site iframe {
+    width: 100%; /* Occupy full width of the container */
+    height: 100%; /* Occupy full height of the container */
+    border: none; /* Remove border from the iframe */
+}
+
+.map--cont{
+    width: 22.688rem;
+    height: 20.531rem;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.map--cont .map--arena{
+    width: 42.688rem;
+    height: 20.531rem;
+    position: absolute;
+    border: 1px solid blue;
+
+}
+
+.map--cont .vals{
+    position: absolute;
+}
+.map--cont .vals:nth-child(2){
+    top: 20px;
+}
+
+.map--cont .cross-air{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: black;
+    width: 2px;
+    height: 2px;
+    border-radius: 100%;
+    z-index: 10;
+}
+
+.map--cont .map--arena .enemy1{
+    width: 25px;
+    height: 63px;
+    position: relative;
+    left: 500px;
+    top: 150px;
+    background-color: red;
+}
+
+.ui_cont{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+
+/* To have a aim circle at the centre of the website. */
+.aim-cont{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aim{
+    width: 30px;
+    height: 30px;
+    background-color: none;
+    border: 1px solid black;
+    border-radius: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aim-dot{
+    width: 4px;
+    height: 4px;
+    background-color: black;
+    border-radius: 1000px;
+}
+
+/* The floors */
+.floor{
+    width: 100vw;
+    height: 2000px;
+    /* background-color: green; */
+    background: grey;
+    /* background-repeat: repeat;
+    background-size: 600px;  */
+    position: absolute;
+    transform-origin: top;
+}
+
+.floor1{
+    transform: rotateX(1.5707957651rad) translateY(-1000px) translateZ(-100vh);
+}
+
+.floor2{
+    left: -100vw;
+    transform: rotateX(1.5707957651rad) translateY(-1000px) translateZ(-100vh);
+}
+
+.floor3{
+    left: 100vw;
+    transform: rotateX(1.5707957651rad) translateY(-1000px) translateZ(-100vh);
+}
+
+.floor4{
+    transform: rotateX(1.5707957651rad) translateY(-3000px) translateZ(-100vh);
+}
+
+.floor5{
+    left: -100vw;
+    transform: rotateX(1.5707957651rad) translateY(-3000px) translateZ(-100vh);
+}
+
+.floor6{
+    left: 100vw;
+    transform: rotateX(1.5707957651rad) translateY(-3000px) translateZ(-100vh);
+}
+
+.floor7{
+    transform: rotateX(1.5707957651rad) translateY(-5000px) translateZ(-100vh);
+}
+
+.floor8{
+    left: -100vw;
+    transform: rotateX(1.5707957651rad) translateY(-5000px) translateZ(-100vh);
+}
+
+.floor9{
+    left: 100vw;
+    transform: rotateX(1.5707957651rad) translateY(-5000px) translateZ(-100vh);
+}
+
+/* I got this button online. lol */
+.button_s,
+.button_s:after {
+  width: 150px;
+  height: 76px;
+  line-height: 78px;
+  font-size: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px #00E6F6;
+  outline: transparent;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button_s:after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+
+  content: 'PUYUAN';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+  clip-path: var(--slice-0);
+}
+
+.button_s:hover:after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+.header {
+    background-color: #B6282a;
+    color: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+table {
+    background-color: transparent;
+    margin-bottom: 1rem;
+    margin: 0 auto;
+    display: table;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: #ffcccc
+}
+
+.bigger {
+    font-size: 16px;
+    padding: 10px;
+    height: 40px;
+
+}
+
+.enemy-cont{
+    position: absolute;
+    /* top: 380px;
+    left: 600px;
+    transform: translateZ(-2000px); */
+
+}
+
+.centered {
+    text-align: center; /* Center align the content horizontally */
+}
+
+#table1, #table2 {
+    margin: 0 auto;
+}
+
+.bigger-buttons {
+    width: 200px; /* Adjust the width to make the buttons wider */
+    height: 50px; /* Adjust the height to make the buttons taller */
+}
